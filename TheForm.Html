@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Information Form</title>
+    <link rel="stylesheet" href="TheForm.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>PERSONAL INFORMATION</h2>
+
+    <form id="personalForm">
+
+        
+
+        <div class="row">
+            <label>Strand </label>
+            <select>
+                <option>Accountancy, Business, and Management (ABM)</option>
+                <option>Science, Technology, Engineering, and Mathematics (STEM)</option>
+                <option>HUMSS - Humanities and Social Sciences</option>
+                <option>TVL - Technical-Vocational-Livelihood</option>
+            </select>
+        </div>
+
+        <h3>Name</h3>
+        <div class="grid">
+            <input type="text" placeholder="Last Name">
+            <input type="text" placeholder="First Name">
+            <input type="text" placeholder="Middle Name">
+            <input type="text" placeholder="Middle Initial">
+        </div>
+
+        <div class="row">
+            <label>LRN</label>
+            <input type="text">
+        </div>
+
+        <div class="row">
+            <label>Gender</label>
+            <div class="radio">
+                <input type="radio" name="gender"> Male
+                <input type="radio" name="gender"> Female
+            </div>
+        </div>
+
+        <div class="row">
+            <label>Birth Date</label>
+            <input type="date">
+        </div>
+
+        <div class="row">
+            <label>Birth Place</label>
+            <input type="text">
+        </div>
+
+        <div class="row">
+            <label>Citizenship</label>
+            <select>
+                <option>Filipino</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <label>Religion</label>
+            <select>
+                <option>Christian</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <label>Email</label>
+            <input type="email">
+        </div>
+
+        <div class="row">
+            <label>Cellphone Number</label>
+            <input type="text">
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script src="TheForm.js"></script>
+</body>
+</html>

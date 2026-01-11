@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create Account - Pillar Enrollment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            display: flex;
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .left-panel {
+            flex: 1;
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        
+        .left-panel h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .left-panel p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .features {
+            list-style: none;
+        }
+        
+        .features li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .features i {
+            margin-right: 15px;
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .right-panel {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .right-panel h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus {
+            border-color: #2575fc;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.2);
+        }
+        
+        .form-group.error input {
+            border-color: #e74c3c;
+        }
+        
+        .form-group.success input {
+            border-color: #2ecc71;
+        }
+        
+        .form-group .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-group.error .error-message {
+            display: block;
+        }
+        
+        .password-strength {
+            height: 5px;
+            margin-top: 8px;
+            border-radius: 3px;
+            background: #eee;
+            overflow: hidden;
+        }
+        
+        .password-strength-bar {
+            height: 100%;
+            width: 0;
+            transition: width 0.3s;
+        }
+        
+        .create-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .create-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .create-btn:active {
+            transform: translateY(0);
+        }
+        
+        .divider {
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+        }
+        
+        .divider::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+            background: #ddd;
+        }
+        
+        .divider span {
+            background: white;
+            padding: 0 15px;
+            position: relative;
+            color: #777;
+        }
+        
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .facebook {
+            background: #3b5998;
+        }
+        
+        .google {
+            background: #dd4b39;
+        }
+        
+        .linkedin {
+            background: #0077b5;
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+        }
+        
+        .login-link a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #555;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+            color: #2575fc;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .left-panel, .right-panel {
+                padding: 30px;
+            }
+            
+            .footer-links {
+                gap: 10px;
+            }
+            
+            .social-login {
+                gap: 10px;
+            }
+        }
+        
+        /* Password toggle visibility */
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 42px;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        .form-group .password-toggle:hover {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <div class="logo">Pillar Enrollment</div>
+            <h1>Your Future Starts Here</h1>
+            <p>Join thousands of students who have transformed their lives through education. Create your account to start your journey.</p>
+            
+            <ul class="features">
+                <li><i class="fas fa-check-circle"></i> Quick Enrollment - Complete your application in minutes</li>
+                <li><i class="fas fa-user-graduate"></i> Expert Advisors - Get personalized guidance from experts</li>
+                <li><i class="fas fa-book-open"></i> Learning Resources - Access comprehensive learning materials</li>
+            </ul>
+        </div>
+        
+        <div class="right-panel">
+            <h2>Create Your Account</h2>
+            
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" placeholder="Enter your full name" required>
+                    <div class="error-message">Please enter your full name</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                    <div class="error-message">Please enter a valid email address</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Create a password" required>
+                    <i class="fas fa-eye password-toggle" id="passwordToggle"></i>
+                    <div class="password-strength">
+                        <div class="password-strength-bar" id="passwordStrengthBar"></div>
+                    </div>
+                    <div class="error-message">Password must be at least 8 characters</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                    <i class="fas fa-eye password-toggle" id="confirmPasswordToggle"></i>
+                    <div class="error-message">Passwords do not match</div>
+                </div>
+                
+                <button type="submit" class="create-btn">Create Account</button>
+            </form>
+            
+            <div class="divider">
+                <span>Or sign up with</span>
+            </div>
+            
+            <div class="social-login">
+                <div class="social-btn facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="social-btn google">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div class="social-btn linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </div>
+            </div>
+            
+            <div class="login-link">
+                Already have an account? <a href="LoginPage.html">Login</a>
+            </div>
+            
+            <footer>
+                <p>© 2025 Pillar Enrollment. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Contact Us</a>
+                    <a href="#">Quick Links</a>
+                    <a href="#">Resources</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('registrationForm');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirm-password');
+            const passwordToggle = document.getElementById('passwordToggle');
+            const confirmPasswordToggle = document.getElementById('confirmPasswordToggle');
+            const passwordStrengthBar = document.getElementById('passwordStrengthBar');
+            
+            // Toggle password visibility
+            function setupPasswordToggle(toggleElement, inputElement) {
+                toggleElement.addEventListener('click', function() {
+                    const type = inputElement.getAttribute('type') === 'password' ? 'text' : 'password';
+                    inputElement.setAttribute('type', type);
+                    toggleElement.classList.toggle('fa-eye');
+                    toggleElement.classList.toggle('fa-eye-slash');
+                });
+            }
+            
+            setupPasswordToggle(passwordToggle, passwordInput);
+            setupPasswordToggle(confirmPasswordToggle, confirmPasswordInput);
+            
+            // Password strength indicator
+            passwordInput.addEventListener('input', function() {
+                const password = passwordInput.value;
+                let strength = 0;
+                
+                if (password.length >=  8) strength += 25;
+                if (/[A-Z]/.test(password)) strength += 25;
+                if (/[0-9]/.test(password)) strength += 25;
+                if (/[^A-Za-z0-9]/.test(password)) strength += 25;
+                
+                passwordStrengthBar.style.width = strength + '%';
+                
+                if (strength < 50) {
+                    passwordStrengthBar.style.backgroundColor = '#e74c3c';
+                } else if (strength < 75) {
+                    passwordStrengthBar.style.backgroundColor = '#f39c12';
+                } else {
+                    passwordStrengthBar.style.backgroundColor = '#2ecc71';
+                }
+            });
+            
+            // Form validation
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                let isValid = true;
+                
+                // Validate full name
+                const fullName = document.getElementById('fullname');
+                if (!fullName.value.trim()) {
+                    showError(fullName.parentElement, 'Please enter your full name');
+                    isValid = false;
+                } else {
+                    clearError(fullName.parentElement);
+                }
+                
+                // Validate email
+                const email = document.getElementById('email');
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email.value)) {
+                    showError(email.parentElement, 'Please enter a valid email address');
+                    isValid = false;
+                } else {
+                    clearError(email.parentElement);
+                }
+                
+                // Validate password
+                if (passwordInput.value.length < 8)
+                {
+                    showError(passwordInput.parentElement, 'Password must be at least 8 characters');
+                    isValid = false;
+                } else {
+                    clearError(passwordInput.parentElement);
+                }
+                
+                // Validate confirm password
+                if (passwordInput.value !== confirmPasswordInput.value) {
+                    showError(confirmPasswordInput.parentElement, 'Passwords do not match');
+                    isValid = false;
+                } else {
+                    clearError(confirmPasswordInput.parentElement);
+                }
+                
+                if (isValid) {
+                    // Form is valid, you can submit it or process the data
+                    alert('Account created successfully!');
+                    form.reset();
+                    passwordStrengthBar.style.width = '0';
+                }
+            });
+            
+            function showError(formGroup, message) {
+                formGroup.classList.add('error');
+                const errorElement = formGroup.querySelector('.error-message');
+                errorElement.textContent = message;
+            }
+            
+            function clearError(formGroup) {
+                formGroup.classList.remove('error');
+            }
+            
+            // Real-time validation for confirm password
+            confirmPasswordInput.addEventListener('input', function() {
+                if (passwordInput.value !== confirmPasswordInput.value) {
+                    showError(confirmPasswordInput.parentElement, 'Passwords do not match');
+                } else {
+                    clearError(confirmPasswordInput.parentElement);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

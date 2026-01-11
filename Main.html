@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quirino High School</title>
+  <link rel="stylesheet" href="test.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav-wrapper">
+      <h1 class="logo">Quirino High School</h1>
+      <nav id="navbar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#academics">Academics</a></li>
+          <li><a href="#admissions">Admissions</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero" >
+      <img src="STATWA.png" alt="">
+      <div class="hero-content">
+        <h2>Welcome to Quirino High School </h2>
+        <p>Preparing tomorrow’s leaders through excellence in education, arts, and athletics.</p>
+        <a href="TheForm.Html" class="btn">Apply Now</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>Founded in 1954, Quirino High School is a public high school serving grades 9-12 with a tradition of academic rigor, inclusive community, and championship athletics.</p>
+        <div class="stats">
+          <div><strong>1,200</strong> Students</div>
+          <div><strong>18:1</strong> Student-Teacher Ratio</div>
+          <div><strong>95%</strong> Graduation Rate</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="academics" class="section bg-light">
+      <div class="container">
+        <h2>Academics</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>STEM</h3>
+            <p>Advanced courses in robotics, AP Calculus, and dual-enrollment physics.</p>
+          </div>
+          <div class="card">
+            <h3>Arts</h3>
+            <p>Visual arts, band, choir, and an award-winning theater program.</p>
+          </div>
+          <div class="card">
+            <h3>Humanities</h3>
+            <p>AP History, Model UN, and creative-writing workshops.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="admissions" class="section">
+      <div class="container">
+        <h2>Admissions</h2>
+        <p>We accept applications from October through January. Shadow days and campus tours run weekly—schedule yours today.</p>
+        <a href="#contact" class="btn">Schedule Tour</a>
+      </div>
+    </section>
+
+    <section id="contact" class="section bg-light">
+      
+      <div class="container">
+
+        <h2>Contact</h2>
+
+        <p>1234 Maple Drive · Springfield, ST 12345<br>
+        Office: (555) 555-0199 · Email: QuirinoHighSchool@gov.edu</p>
+
+        <form id="contact-form">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" placeholder="Message" rows="4" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Quirino High School. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="test.js"></script>
+</body>
+</html>
